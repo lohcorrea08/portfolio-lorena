@@ -1,16 +1,23 @@
-// Configure o link da sua pasta pública do Google Drive abaixo.
-const LINK_CERTIFICADOS = '';
-const botaoCertificados = document.getElementById('cert-link');
-if (LINK_CERTIFICADOS) {
-  botaoCertificados.href = LINK_CERTIFICADOS;
-  botaoCertificados.target = '_blank';
-  botaoCertificados.rel = 'noopener noreferrer';
-  botaoCertificados.removeAttribute('aria-disabled');
-  botaoCertificados.nextElementSibling.textContent = 'Abrir certificados em nova aba';
-} else {
-  botaoCertificados.addEventListener('click', (event) => event.preventDefault());
+// Depois de criar o repositório público no GitHub, substitua as aspas vazias
+// pelo link. Exemplo: 'https://github.com/seu-usuario/portfolio-trilhas'
+const LINK_GITHUB = 'https://github.com/lohcorrea08/portfolio-lorena';
+const LINK_CERTIFICADOS = ''; // Link público da pasta de certificados no Google Drive
+
+function configurarLink(seletor, url, mensagem) {
+  document.querySelectorAll(seletor).forEach(link => {
+    if (url && /^https:\/\//.test(url)) {
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    } else {
+      link.href = '#';
+      link.setAttribute('aria-label', `${link.textContent.trim()}: link ainda não configurado`);
+      link.addEventListener('click', evento => {
+        evento.preventDefault();
+        alert(mensagem);
+      });
+    }
+  });
 }
-const linkProjeto = document.querySelector('[data-placeholder="github"]');
-linkProjeto.addEventListener('click', (event) => {
-  if (linkProjeto.href === 'https://github.com/') event.preventDefault();
-});
+configurarLink('[data-projeto], [data-github]', LINK_GITHUB, 'O endereço do GitHub será adicionado após a publicação do projeto.');
+configurarLink('[data-certificados]', LINK_CERTIFICADOS, 'A pasta de certificados será adicionada quando estiver disponível.');

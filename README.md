@@ -1,20 +1,12 @@
 # Portfólio | Lorena Corrêa
 
-Portfólio pessoal desenvolvido para o desafio Front-end do Programa Trilhas.
+Portfólio desenvolvido para o desafio Front-end do Programa Trilhas.
 
-## Como visualizar
-Abra o arquivo `index.html` no navegador. O site usa HTML, CSS e JavaScript, sem necessidade de instalação.
+## Arquivos
+Todos os arquivos ficam na raiz do repositório, sem pastas adicionais: `index.html`, `sobre.html`, `projetos.html`, `estilo.css`, `script.js` e `lorena.jpeg`.
 
-## Estrutura
-- `index.html`: página inicial, sobre mim, projetos e certificados.
-- `style.css`: layout responsivo e estilização.
-- `script.js`: configuração do link dos certificados.
-- `assets/lorena.jpeg`: foto pessoal.
+## Publicação
+Envie os arquivos para o repositório público do GitHub e clique em Commit changes. Para ver o site publicado, vá em Settings > Pages > Deploy from a branch > branch principal/main > /(root) > Save.
 
-## Antes de entregar
-1. Substitua `https://github.com/` no link do projeto no `index.html` pelo endereço do seu repositório publicado.
-2. Cole o link público da pasta do Drive entre as aspas de `LINK_CERTIFICADOS` no `script.js`.
-3. Se desejar, atualize o texto e inclua projetos reais, sem inventar trabalhos ou certificados.
-4. Publique todos os arquivos em um repositório público no GitHub e envie o link na plataforma +Robotic.
-
-**Nota:** Esta versão segue os requisitos informados, mas a correspondência visual exata com o Figma depende de acesso ao arquivo original, que apresentou restrição de permissão.
+## Certificados
+Quando você tiver uma pasta pública de certificados no Google Drive, insira a URL na constante `LINK_CERTIFICADOS` dentro de `script.js`.
