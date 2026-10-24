@@ -1,23 +1,22 @@
-// Depois de criar o repositório público no GitHub, substitua as aspas vazias
-// pelo link. Exemplo: 'https://github.com/seu-usuario/portfolio-trilhas'
+// Repositório público do portfólio de Lorena Corrêa
 const LINK_GITHUB = 'https://github.com/lohcorrea08/portfolio-lorena';
-const LINK_CERTIFICADOS = ''; // Link público da pasta de certificados no Google Drive
 
-function configurarLink(seletor, url, mensagem) {
+// Quando receber certificados, você poderá atualizar certificados.html.
+const PAGINA_CERTIFICADOS = 'certificados.html';
+
+function configurarLinkExterno(seletor, url) {
   document.querySelectorAll(seletor).forEach(link => {
-    if (url && /^https:\/\//.test(url)) {
-      link.href = url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-    } else {
-      link.href = '#';
-      link.setAttribute('aria-label', `${link.textContent.trim()}: link ainda não configurado`);
-      link.addEventListener('click', evento => {
-        evento.preventDefault();
-        alert(mensagem);
-      });
-    }
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
   });
 }
-configurarLink('[data-projeto], [data-github]', LINK_GITHUB, 'O endereço do GitHub será adicionado após a publicação do projeto.');
-configurarLink('[data-certificados]', LINK_CERTIFICADOS, 'A pasta de certificados será adicionada quando estiver disponível.');
+
+configurarLinkExterno('[data-projeto], [data-github]', LINK_GITHUB);
+
+// Botão de certificados das páginas Início, Sobre mim e Projetos.
+document.querySelectorAll('[data-certificados]').forEach(link => {
+  link.href = PAGINA_CERTIFICADOS;
+  link.removeAttribute('target');
+  link.removeAttribute('aria-label');
+});
